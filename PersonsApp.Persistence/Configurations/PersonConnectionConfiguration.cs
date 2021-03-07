@@ -12,7 +12,7 @@ namespace PersonsApp.Persistence.Configurations
         public void Configure(EntityTypeBuilder<PersonConnection> builder)
         {
             builder.HasOne(d => d.ConnectedPerson).WithMany().HasForeignKey(d => d.ConnectedPersonId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(d => d.Person).WithMany(x => x.PersonConections).HasForeignKey(d => d.PersonId);
+            builder.HasOne(d => d.Person).WithMany(x => x.PersonConnections).HasForeignKey(d => d.PersonId);
         }
     }
 }

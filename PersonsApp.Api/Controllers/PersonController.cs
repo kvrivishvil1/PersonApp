@@ -66,10 +66,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult> Change(ChangePersonCommand command)
-        {
-            await _mediator.Send(command);
-            return NoContent();
-        }
+            => Ok(await _mediator.Send(command));
 
 
         /// <summary>
@@ -96,10 +93,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult> Delete(int id)
-        {
-            await _mediator.Send(new DeletePersonCoomand { Id = id });
-            return NoContent();
-        }
+            => Ok(await _mediator.Send(new DeletePersonCoomand { Id = id }));
 
 
         /// <summary>
@@ -110,10 +104,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [HttpPost("FastSearch")]
         public async Task<ActionResult> FastSearch(GetPersonsListQuery command)
-        {
-            var result = await _mediator.Send(command);
-            return NoContent();
-        }
+            => Ok(await _mediator.Send(command));
 
 
         /// <summary>

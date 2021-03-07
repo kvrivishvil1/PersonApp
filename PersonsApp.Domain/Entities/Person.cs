@@ -22,7 +22,7 @@ namespace PersonsApp.Domain.Entities
 
 
         public virtual IEnumerable<PhoneNumber> PhoneNumbers { get; set; }
-        public virtual IEnumerable<PersonConnection> PersonConections { get; set; }
+        public virtual IEnumerable<PersonConnection> PersonConnections { get; set; }
 
 
     }

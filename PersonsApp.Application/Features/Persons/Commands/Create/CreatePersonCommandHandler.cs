@@ -24,7 +24,7 @@ namespace PersonsApp.Application.Features.Persons.Commands.Create
 
         public async Task<int> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
         {
-            var dublicate = await _personRepository.PersonGetWithPersonalN(request.PersonalN);
+            var dublicate = await _personRepository.GetPersonGetWithPersonalNAsync(request.PersonalN);
             if (dublicate != null)
                 throw new DublicateException();
 

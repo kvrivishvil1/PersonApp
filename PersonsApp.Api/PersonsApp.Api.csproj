@@ -29,4 +29,8 @@
     <ProjectReference Include="..\PersonsApp.Persistence\PersonsApp.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

@@ -37,7 +37,7 @@ namespace PersonsApp.Api.Middlewares
         private async Task ConvertException(HttpContext context, Exception ex)
         {
             context.Response.ContentType = "application/json";
-            _logger.LogError(ex.Message);
+            _logger.LogError(ex, ex.Message);
 
             var result = HandleException(ex);
 

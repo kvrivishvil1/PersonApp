@@ -18,7 +18,15 @@ namespace PersonsApp.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<PersonConnection> PersonConnectionSearch(int connectionTypeId, int personId, int connectedPersonId)
+        public async Task<bool> CheckIfPersonIsConnectedAsync(int personId)
+            =>  await _dbContext.PersonConnections
+                        .FirstOrDefaultAsync(x=> x.ConnectedPersonId == personId) != null;
+
+        public async Task<IEnumerable<PersonConnection>> ListForReportAsync()
+            => await _dbContext.PersonConnections.Include(x => x.Person).Include(x => x.ConnectionType).ToListAsync();
+                        
+
+        public async Task<PersonConnection> PersonConnectionSearchAsync(int connectionTypeId, int personId, int connectedPersonId)
         {
             var personConnection = await _dbContext.PersonConnections
                         .FirstOrDefaultAsync(x => x.ConnectionTypeId == connectionTypeId 

@@ -8,9 +8,10 @@ namespace PersonsApp.Application.Contracts.Persistance
 {
     public interface IPersonRepository : IRepository<Person>
     {
-        Task<Person> PersonDetailedInfo(int id);
-        Task<Person> PersonGetWithPersonalN(string personalN);
-        Task<List<Person>> PersonSearch();
-        Task<List<Person>> PersonDetailedSearch();
+        Task<Person> GetPersonDetailedInfoAsync(int id);
+        Task<Person> GetPersonGetWithPersonalNAsync(string personalN);
+        Task<List<Person>> PersonSearchAsync();
+        Task<List<Person>> PersonDetailedSearchAsync();
+        Task<Person> GetOneWithPhoneNumbersAsync(int id);
     }
 }

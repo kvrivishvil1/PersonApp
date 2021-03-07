@@ -14,5 +14,6 @@ namespace PersonsApp.Application.Features.Persons.Commands.Change
         public DateTime? BirthDate { get; set; }
         public int GenderId { get; set; }
         public int CityId { get; set; }
+        public IEnumerable<ChangePhoneNumberDto> PhoneNumbers { get; set; }
     }
 }

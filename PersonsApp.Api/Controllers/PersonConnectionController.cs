@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using PersonsApp.Api.Middlewares;
 using PersonsApp.Application.Features.ConnectedPersons.Commands.Create;
 using PersonsApp.Application.Features.ConnectedPersons.Commands.Delete;
+using PersonsApp.Application.Features.ConnectedPersons.Queries.PersonConnectionsReport;
 
 namespace PersonsApp.Api.Controllers
 {
@@ -45,10 +46,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult> Delete(int id)
-        {
-            await _mediator.Send(new DeletePersonConnectionCommand { Id = id });
-            return NoContent();
-        }
+            => Ok(await _mediator.Send(new DeletePersonConnectionCommand { Id = id }));
 
         /// <summary>
         /// Report of connected persons 
@@ -57,10 +55,8 @@ namespace PersonsApp.Api.Controllers
         [HttpGet("Report")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
-        public string ConnectedPersonsReport()
-        {
-            return "person1";
-        }
+        public async Task<ActionResult<IEnumerable<PersonConnectionReportVm>>> ConnectedPersonsReport()
+            => Ok(await _mediator.Send(new PersonConnectionsReportQuery()));
 
     }
 }

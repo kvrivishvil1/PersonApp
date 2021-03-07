@@ -24,7 +24,10 @@ namespace PersonsApp.Application.Features.ConnectedPersons.Commands.Create
 
         public async Task<int> Handle(CreatePersonConnectionCommand request, CancellationToken cancellationToken)
         {
-            var dublicate = await _personConnectionRepository.PersonConnectionSearch(request.ConnectionTypeId, request.PersonId, request.ConnectedPersonId);
+            if (request.ConnectedPersonId == request.PersonId)
+                throw new BadRequestException("დაკავშირებული პირი ვერ იქნება შენი თავი");
+
+            var dublicate = await _personConnectionRepository.PersonConnectionSearchAsync(request.ConnectionTypeId, request.PersonId, request.ConnectedPersonId);
 
             if(dublicate != null)
                 throw new DublicateException();

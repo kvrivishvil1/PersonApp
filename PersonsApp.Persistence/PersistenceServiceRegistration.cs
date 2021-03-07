@@ -18,6 +18,7 @@ namespace PersonsApp.Persistence
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPersonConnectionRepository, PersonConnectionRepository>();
+            services.AddScoped<IPhoneNumberRepository, PhoneNumberRepository>();
 
             return services;
         }

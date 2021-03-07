@@ -27,7 +27,7 @@ namespace PersonsApp.Application.Features.Persons.Queries.GetPersonDetails
         public async Task<PersonVm> Handle(GetPersonDetailsQuery request, CancellationToken cancellationToken)
         {
 
-            var person = await _personRepository.PersonDetailedInfo(request.Id);
+            var person = await _personRepository.GetPersonDetailedInfoAsync(request.Id);
 
             if (person is null)
                 throw new NotFoundException("Person", request.Id.ToString());

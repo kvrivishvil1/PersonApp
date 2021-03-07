@@ -8,6 +8,8 @@ namespace PersonsApp.Application.Contracts.Persistance
 {
     public interface IPersonConnectionRepository : IRepository<PersonConnection>
     {
-        Task<PersonConnection> PersonConnectionSearch(int connectionTypeId, int personId, int connectedPersonId);
+        Task<PersonConnection> PersonConnectionSearchAsync(int connectionTypeId, int personId, int connectedPersonId);
+        Task<bool> CheckIfPersonIsConnectedAsync(int personId);
+        Task<IEnumerable<PersonConnection>> ListForReportAsync();
     }
 }

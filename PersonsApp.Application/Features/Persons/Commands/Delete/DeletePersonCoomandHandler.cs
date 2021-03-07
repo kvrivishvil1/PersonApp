@@ -14,16 +14,21 @@ namespace PersonsApp.Application.Features.Persons.Commands.Delete
     public class DeletePersonCoomandHandler : IRequestHandler<DeletePersonCoomand>
     {
         private readonly IPersonRepository _personRepository;
+        private readonly IPersonConnectionRepository _personConnectionRepository;
         private readonly IMapper _mapper;
 
-        public DeletePersonCoomandHandler(IPersonRepository personRepository, IMapper mapper)
+        public DeletePersonCoomandHandler(IPersonRepository personRepository, IMapper mapper, IPersonConnectionRepository personConnectionRepository)
         {
             _personRepository = personRepository;
             _mapper = mapper;
+            _personConnectionRepository = personConnectionRepository;
         }
 
         public async Task<Unit> Handle(DeletePersonCoomand request, CancellationToken cancellationToken)
         {
+            if (await _personConnectionRepository.CheckIfPersonIsConnectedAsync(request.Id))
+                throw new BadRequestException("წაშლა შეუძლებელია პირი იძებნება დაკავშირებულთა სიაში");
+
             var toDelete = await _personRepository.GetOneByIdAsync(request.Id);
 
             if (toDelete is null)
