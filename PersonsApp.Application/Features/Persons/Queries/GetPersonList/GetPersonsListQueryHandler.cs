@@ -11,23 +11,24 @@ using System.Threading.Tasks;
 
 namespace PersonsApp.Application.Features.Persons.Queries.GetPersonList
 {
-    public class GetPersonsListQueryHandler : IRequestHandler<GetPersonsListQuery, List<PersonListVm>>
+    public class GetPersonsListQueryHandler : IRequestHandler<GetPersonsListQuery, IEnumerable<PersonListVm>>
     {
 
-        private readonly IRepository<Person> _personRepository;
+        private readonly IPersonRepository _personRepository;
         private readonly IMapper _mapper;
 
-        public GetPersonsListQueryHandler(IRepository<Person> personRepository, IMapper mapper)
+        public GetPersonsListQueryHandler(IPersonRepository personRepository, IMapper mapper)
         {
             _personRepository = personRepository;
             _mapper = mapper;
         }
 
-        public async Task<List<PersonListVm>> Handle(GetPersonsListQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PersonListVm>> Handle(GetPersonsListQuery request, CancellationToken cancellationToken)
         {
-            var persons = (await _personRepository.ListAsync()).OrderBy(x => x.ID);
+            //var persons = (await _personRepository.ListAsync()).OrderBy(x => x.ID);
+            var persons = await _personRepository.PersonSearchAsync(request);
 
-            return _mapper.Map<List<PersonListVm>>(persons);
+            return _mapper.Map<IEnumerable<PersonListVm>>(persons);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PersonsApp.Domain.Entities;
+﻿using PersonsApp.Application.Features.Persons.Queries.GetPersonList;
+using PersonsApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,8 +11,7 @@ namespace PersonsApp.Application.Contracts.Persistance
     {
         Task<Person> GetPersonDetailedInfoAsync(int id);
         Task<Person> GetPersonGetWithPersonalNAsync(string personalN);
-        Task<List<Person>> PersonSearchAsync();
-        Task<List<Person>> PersonDetailedSearchAsync();
+        Task<IEnumerable<Person>> PersonSearchAsync(GetPersonsListQuery filter);
         Task<Person> GetOneWithPhoneNumbersAsync(int id);
     }
 }

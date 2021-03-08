@@ -11,6 +11,5 @@ namespace PersonsApp.Application.Features.Persons.Queries.GetPersonList
         public string LastName { get; set; }
         public string PersonalN { get; set; }
         public DateTime? BirthDate { get; set; }
-        public string Image { get; set; }
     }
 }

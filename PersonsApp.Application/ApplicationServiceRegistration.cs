@@ -17,6 +17,8 @@ namespace PersonsApp.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(Validator<,>));
 
+            services.AddLocalization();
+
             return services;
         }
     }

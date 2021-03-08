@@ -103,8 +103,8 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [HttpPost("FastSearch")]
-        public async Task<ActionResult> FastSearch(GetPersonsListQuery command)
-            => Ok(await _mediator.Send(command));
+        public async Task<ActionResult<IEnumerable<PersonListVm>>> FastSearch(string firstName, string lastName, string personalN, int pageNum, int pageSize)
+            => Ok(await _mediator.Send(new GetPersonsListQuery { FirstName =  firstName, LastName = lastName, PersonalN = personalN, PageNum = pageNum, PageSize = pageSize }));
 
 
         /// <summary>
@@ -114,10 +114,8 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [HttpPost("DetailedSearch")]
-        public string DetailedSearch()
-        {
-            return "person1";
-        }
+        public async Task<ActionResult<IEnumerable<PersonListVm>>> DetailedSearch(GetPersonsListQuery query)
+        => Ok(await _mediator.Send(query));
 
     }
 }

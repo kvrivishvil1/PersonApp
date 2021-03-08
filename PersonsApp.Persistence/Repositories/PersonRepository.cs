@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonsApp.Application.Contracts.Persistance;
+using PersonsApp.Application.Features.Persons.Queries.GetPersonList;
 using PersonsApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -35,14 +36,29 @@ namespace PersonsApp.Persistence.Repositories
         public async Task<Person> GetPersonGetWithPersonalNAsync(string personalN)
             => await _dbContext.Persons.FirstOrDefaultAsync(x => x.PersonalN == personalN);
 
-        public Task<List<Person>> PersonDetailedSearchAsync()
+        public async Task<IEnumerable<Person>> PersonSearchAsync(GetPersonsListQuery filter)
         {
-            throw new NotImplementedException();
-        }
+            IQueryable<Person> query = _dbContext.Set<Person>();
 
-        public Task<List<Person>> PersonSearchAsync()
-        {
-            throw new NotImplementedException();
+            if (filter.FirstName != null)
+                query = query.Where(t => EF.Functions.Like(t.FirstName, $"%{filter.FirstName}%"));
+
+            if (filter.LastName != null)
+                query = query.Where(t => EF.Functions.Like(t.LastName, $"%{filter.LastName}%"));
+
+            if (filter.PersonalN != null)
+                query = query.Where(t => EF.Functions.Like(t.PersonalN, $"%{filter.PersonalN}%"));
+
+            if (filter.BirthDate != null)
+                query = query.Where(t => t.BirthDate == filter.BirthDate);
+
+            if (filter.GenderId != null)
+                query = query.Where(t => t.GenderId == filter.GenderId);
+
+            if (filter.CityId != null)
+                query = query.Where(t => t.CityId == filter.CityId);
+
+            return await query.OrderBy(x=> x.ID).Skip((filter.PageNum-1)*filter.PageSize).Take(filter.PageSize).ToListAsync();
         }
     }
 }
