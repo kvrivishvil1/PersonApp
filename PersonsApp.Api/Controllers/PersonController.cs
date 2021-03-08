@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PersonsApp.Api.Middlewares;
 using PersonsApp.Application.Features.Persons.Commands.Change;
+using PersonsApp.Application.Features.Persons.Commands.ChangeImage;
 using PersonsApp.Application.Features.Persons.Commands.Create;
 using PersonsApp.Application.Features.Persons.Commands.Delete;
 using PersonsApp.Application.Features.Persons.Queries.GetPersonDetails;
@@ -77,10 +78,8 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [HttpPost("AddPicture")]
-        public string AddPicture()
-        {
-            return "person1";
-        }
+        public async Task<ActionResult> AddPictureNew(int personId, IFormFile image)
+            => Ok(await _mediator.Send(new AddPictureCommand { PersonId = personId, Image = image }));
 
 
         /// <summary>

@@ -118,30 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ExactLength" xml:space="preserve">
-    <value>{0} Must Contain {1} Symbols</value>
+    <value>{0} უნდა იყოს ზუსტად {1} სიგრძის</value>
+  </data>
+  <data name="FileIsMandatory" xml:space="preserve">
+    <value>ფაილი აუცილებელია</value>
+  </data>
+  <data name="ImageIsMandatory" xml:space="preserve">
+    <value>სურათი აუცილებელია</value>
   </data>
   <data name="LongerThanMaxLength" xml:space="preserve">
-    <value>{0} Mustn't Contain More Than {1} Symbols</value>
+    <value>{0} არ უნდა შეიცავდეს {1}-ზე მეტ სიმბოლოს</value>
   </data>
   <data name="MinAge" xml:space="preserve">
-    <value>Person Must Be Older Than 18</value>
+    <value>პირი უნდა იყოს მინიმუმ 18 წლის</value>
   </data>
   <data name="MustBeGreaterThan" xml:space="preserve">
-    <value>{0} Must Be Greater Then {1} </value>
+    <value>{0} უნდა იყოს {1}-ზე მეტი</value>
   </data>
   <data name="MustContainGeorgianAndLatin" xml:space="preserve">
-    <value>{0} Must Contain Georgian Or Latin Symbols</value>
+    <value>{0} უნდა შეიცავდეს ქართულ ან ლათინურ სიმბოლოებს</value>
   </data>
   <data name="MustContainOnlyDigits" xml:space="preserve">
-    <value>{0} Must Contain Only Digits</value>
+    <value>{0} უნდა შეიცავდეს მხოლოდ ციფრებს</value>
   </data>
   <data name="NotExists" xml:space="preserve">
-    <value>{0} Not Exists</value>
+    <value>{0} არ არსებობს</value>
   </data>
   <data name="ShorterThanMinLength" xml:space="preserve">
-    <value>{0} Must Contain More Then {1} Symbols</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+    <value>{0} უნდა შეცავდეს {1} ან მეტ სიმბოლოს</value>
   </data>
 </root>

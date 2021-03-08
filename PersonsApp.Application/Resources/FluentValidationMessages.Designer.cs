@@ -61,7 +61,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Must Contain {1} Symbols.
+        ///   Looks up a localized string similar to {0} უნდა იყოს ზუსტად {1} სიგრძის.
         /// </summary>
         public static string ExactLength {
             get {
@@ -70,7 +70,25 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Mustn&apos;t Contain More Than {1} Symbols.
+        ///   Looks up a localized string similar to ფაილი აუცილებელია.
+        /// </summary>
+        public static string FileIsMandatory {
+            get {
+                return ResourceManager.GetString("FileIsMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to სურათი აუცილებელია.
+        /// </summary>
+        public static string ImageIsMandatory {
+            get {
+                return ResourceManager.GetString("ImageIsMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} არ უნდა შეიცავდეს {1}-ზე მეტ სიმბოლოს.
         /// </summary>
         public static string LongerThanMaxLength {
             get {
@@ -79,7 +97,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Person Must Be Older Than 18.
+        ///   Looks up a localized string similar to პირი უნდა იყოს მინიმუმ 18 წლის.
         /// </summary>
         public static string MinAge {
             get {
@@ -88,7 +106,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Must Be Greater Then {1} .
+        ///   Looks up a localized string similar to {0} უნდა იყოს {1}-ზე მეტი.
         /// </summary>
         public static string MustBeGreaterThan {
             get {
@@ -97,7 +115,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Must Contain Georgian Or Latin Symbols.
+        ///   Looks up a localized string similar to {0} უნდა შეიცავდეს ქართულ ან ლათინურ სიმბოლოებს.
         /// </summary>
         public static string MustContainGeorgianAndLatin {
             get {
@@ -106,7 +124,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Must Contain Only Digits.
+        ///   Looks up a localized string similar to {0} უნდა შეიცავდეს მხოლოდ ციფრებს.
         /// </summary>
         public static string MustContainOnlyDigits {
             get {
@@ -115,7 +133,7 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Not Exists.
+        ///   Looks up a localized string similar to {0} არ არსებობს.
         /// </summary>
         public static string NotExists {
             get {
@@ -124,20 +142,11 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Must Contain More Then {1} Symbols.
+        ///   Looks up a localized string similar to {0} უნდა შეცავდეს {1} ან მეტ სიმბოლოს.
         /// </summary>
         public static string ShorterThanMinLength {
             get {
                 return ResourceManager.GetString("ShorterThanMinLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }
