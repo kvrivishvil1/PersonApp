@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConnectionAllreadyExists" xml:space="preserve">
+    <value>კავშირი უკვე არსებობს</value>
+  </data>
   <data name="ExactLength" xml:space="preserve">
     <value>{0} უნდა იყოს ზუსტად {1} სიგრძის</value>
-  </data>
-  <data name="FileIsMandatory" xml:space="preserve">
-    <value>ფაილი აუცილებელია</value>
   </data>
   <data name="ImageIsMandatory" xml:space="preserve">
     <value>სურათი აუცილებელია</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="NotExists" xml:space="preserve">
     <value>{0} არ არსებობს</value>
+  </data>
+  <data name="PersonWithPersonalnExists" xml:space="preserve">
+    <value>ამ პირადი ნომრით მომხმარებელი უკვე არსებობს</value>
   </data>
   <data name="ShorterThanMinLength" xml:space="preserve">
     <value>{0} უნდა შეცავდეს {1} ან მეტ სიმბოლოს</value>

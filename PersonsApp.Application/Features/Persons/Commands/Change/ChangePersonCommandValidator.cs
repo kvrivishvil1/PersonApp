@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace PersonsApp.Application.Features.Persons.Commands.Change
 {
-    public class ChangePersonEventValidator : AbstractValidator<ChangePersonCommand>
+    public class ChangePersonCommandValidator : AbstractValidator<ChangePersonCommand>
     {
         private readonly IRepository<Gender> _genderRepository;
         private readonly IRepository<City> _cityRepository;
         private readonly IRepository<Person> _personRepository;
         private readonly IRepository<PhoneType> _phoneTypeRepository;
 
-        public ChangePersonEventValidator(IRepository<Gender> genderRepository, IRepository<City> cityRepository, 
+        public ChangePersonCommandValidator(IRepository<Gender> genderRepository, IRepository<City> cityRepository, 
             IRepository<Person> personRepository, IRepository<PhoneType> phoneTypeRepository, IStringLocalizer<FluentValidationMessages> localizer)
         {
             _genderRepository = genderRepository;

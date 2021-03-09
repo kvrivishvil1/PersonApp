@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConnectionAllreadyExists" xml:space="preserve">
+    <value>Connection Allready Exists</value>
+  </data>
   <data name="ExactLength" xml:space="preserve">
     <value>{0} Must Contain {1} Symbols</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="NotExists" xml:space="preserve">
     <value>{0} Not Exists</value>
+  </data>
+  <data name="PersonWithPersonalnExists" xml:space="preserve">
+    <value>Person With Same PersonalN Allready Exists</value>
   </data>
   <data name="ShorterThanMinLength" xml:space="preserve">
     <value>{0} Must Contain More Then {1} Symbols</value>

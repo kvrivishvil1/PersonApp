@@ -61,20 +61,20 @@ namespace PersonsApp.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to კავშირი უკვე არსებობს.
+        /// </summary>
+        public static string ConnectionAllreadyExists {
+            get {
+                return ResourceManager.GetString("ConnectionAllreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} უნდა იყოს ზუსტად {1} სიგრძის.
         /// </summary>
         public static string ExactLength {
             get {
                 return ResourceManager.GetString("ExactLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ფაილი აუცილებელია.
-        /// </summary>
-        public static string FileIsMandatory {
-            get {
-                return ResourceManager.GetString("FileIsMandatory", resourceCulture);
             }
         }
         
@@ -138,6 +138,15 @@ namespace PersonsApp.Application.Resources {
         public static string NotExists {
             get {
                 return ResourceManager.GetString("NotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ამ პირადი ნომრით მომხმარებელი უკვე არსებობს.
+        /// </summary>
+        public static string PersonWithPersonalnExists {
+            get {
+                return ResourceManager.GetString("PersonWithPersonalnExists", resourceCulture);
             }
         }
         

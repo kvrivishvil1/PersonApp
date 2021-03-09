@@ -40,7 +40,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<PersonVm>> Get(int id)
+        public async Task<ActionResult<PersonVm>> Get([FromQuery]int id)
             => Ok(await _mediator.Send(new GetPersonDetailsQuery { Id = id }));
 
 
@@ -53,7 +53,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.Conflict)]
-        public async Task<ActionResult<int>> Save(CreatePersonCommand command)
+        public async Task<ActionResult<int>> Save([FromBody]CreatePersonCommand command)
             => Ok(await _mediator.Send(command));
 
 
@@ -62,11 +62,11 @@ namespace PersonsApp.Api.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("Change")]
+        [HttpPut("Change")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult> Change(ChangePersonCommand command)
+        public async Task<ActionResult> Change([FromBody] ChangePersonCommand command)
             => Ok(await _mediator.Send(command));
 
 
@@ -91,7 +91,7 @@ namespace PersonsApp.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete([FromQuery] int id)
             => Ok(await _mediator.Send(new DeletePersonCoomand { Id = id }));
 
 
@@ -101,8 +101,8 @@ namespace PersonsApp.Api.Controllers
         /// <returns></returns>
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
-        [HttpPost("FastSearch")]
-        public async Task<ActionResult<IEnumerable<PersonListVm>>> FastSearch(string firstName, string lastName, string personalN, int pageNum, int pageSize)
+        [HttpGet("FastSearch")]
+        public async Task<ActionResult<IEnumerable<PersonListVm>>> FastSearch([FromQuery]string firstName, string lastName, string personalN, int pageNum, int pageSize)
             => Ok(await _mediator.Send(new GetPersonsListQuery { FirstName =  firstName, LastName = lastName, PersonalN = personalN, PageNum = pageNum, PageSize = pageSize }));
 
 
@@ -112,8 +112,8 @@ namespace PersonsApp.Api.Controllers
         /// <returns></returns>
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Error), (int)HttpStatusCode.BadRequest)]
-        [HttpPost("DetailedSearch")]
-        public async Task<ActionResult<IEnumerable<PersonListVm>>> DetailedSearch(GetPersonsListQuery query)
+        [HttpGet("DetailedSearch")]
+        public async Task<ActionResult<IEnumerable<PersonListVm>>> DetailedSearch([FromQuery]GetPersonsListQuery query)
         => Ok(await _mediator.Send(query));
 
     }

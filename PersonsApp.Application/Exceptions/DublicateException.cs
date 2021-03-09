@@ -6,7 +6,7 @@ namespace PersonsApp.Application.Exceptions
 {
     public class DublicateException : ApplicationException
     {
-        public DublicateException() : base($"Allready Exists")
+        public DublicateException(string message) : base(message)
         {
 
         }
